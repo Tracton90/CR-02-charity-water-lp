@@ -124,3 +124,65 @@ text-align: left;
 .hero__cta-note{ font-size: .95rem; }
 .hero__blurb{ font-size: 1rem; }
 }
+/* ===== Mobile Layout RESET (<= 600px) ===== */
+@media (max-width: 600px){
+/* Make the hero a 3-row grid: title, flexible spacer, CTA+blurb */
+.hero{
+min-height: 100svh; /* stable height on iOS */
+display: grid;
+grid-template-rows: auto 1fr auto; /* top, spacer, bottom */
+align-content: stretch;
+}
+
+
+/* Title sits in the first row; no absolute positioning */
+.hero__title{
+position: static; /* overrides absolute */
+margin: 10vh 6vw 0 6vw;
+text-align: right;
+font-size: clamp(1.6rem, 8.5vw, 2.2rem);
+line-height: 1.06;
+gap: .06em;
+}
+
+
+/* CTA + blurb live in the last row, bottom of screen */
+.hero__content{
+position: static; /* overrides absolute */
+left: auto; right: auto; top: auto; bottom: auto; /* fully reset */
+margin: 0 6vw 6vh; /* side & bottom breathing room */
+display: flex;
+flex-direction: column;
+align-items: stretch;
+gap: 1.2rem;
+z-index: 1; /* sits above image/overlay */
+text-align: left;
+}
+
+
+/* Strengthen overlay for text contrast on the bright photo */
+.hero__overlay{
+background: linear-gradient(180deg,
+rgba(0,51,102,.30) 0%,
+rgba(0,51,102,.20) 40%,
+rgba(0,51,102,.32) 100%
+);
+}
+
+
+/* Comfortable tap targets and layout */
+.cta-buttons{ gap: .85rem; width: 100%; }
+.btn{ width: 100%; padding: 1rem 1.2rem; font-size: 1rem; }
+.hero__cta{ gap: 1rem; }
+.hero__cta-note{ font-size: 1rem; }
+.hero__blurb{ max-width: 100%; font-size: 1.05rem; line-height: 1.6; }
+}
+
+
+/* ===== Very small devices (<= 380px) ===== */
+@media (max-width: 380px){
+.hero__title{ font-size: clamp(1.35rem, 9.2vw, 1.9rem); margin-top: 9vh; }
+.btn{ font-size: .95rem; padding: .9rem 1rem; }
+.hero__cta-note{ font-size: .95rem; }
+.hero__blurb{ font-size: 1rem; }
+}

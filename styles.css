@@ -60,3 +60,67 @@ body{font-family:'Proxima Nova','Avenir',sans-serif;color:#1A1A1A;background:#FF
 /* Tablet */
 @media (max-width: 900px){
 }
+/* ===== Mobile Hotfix (<= 600px) ===== */
+@media (max-width: 600px){
+/* Use dynamic viewport height so Safari's URL bar doesn't collapse the hero */
+.hero{ min-height: 100svh; }
+
+
+/* Make image visible but keep legibility with a stronger overlay */
+.hero__overlay{
+background: linear-gradient(180deg,
+rgba(0,51,102,.30) 0%,
+rgba(0,51,102,.20) 40%,
+rgba(0,51,102,.32) 100%
+);
+}
+
+
+/* Headline fixes: smaller, padded from the right edge, and a touch more spacing */
+.hero__title{
+right: 6vw; /* was 5vw — gives breathing room */
+top: 10vh; /* lower from the very top */
+font-size: clamp(1.6rem, 8.5vw, 2.3rem);
+line-height: 1.05;
+gap: .06em;
+max-width: 10ch; /* prevents overly long lines */
+}
+
+
+/* Ensure header logo doesn't crowd content and stays tappable */
+.brandbar{ top: 12px; right: 4.5vw; }
+.brandbar__logo-img{ width: clamp(110px, 28vw, 160px); }
+
+
+/* CTA & blurb: bring them back on-screen, stack with space */
+.hero__content{
+left: 6vw; right: 6vw; bottom: 6vh;
+gap: 1.4rem; align-items: stretch; text-align: left;
+}
+
+
+.cta-buttons{ gap: .85rem; width: 100%; }
+.btn{ width: 100%; padding: 1rem 1.2rem; font-size: 1rem; }
+
+
+.hero__cta{ gap: 1rem; }
+.hero__cta-note{ font-size: 1rem; }
+
+
+/* Blurb: readable width and spacing */
+.hero__blurb{
+max-width: 100%;
+font-size: 1.05rem;
+line-height: 1.6;
+text-align: left;
+}
+}
+
+
+/* ===== Very small devices (<= 380px) ===== */
+@media (max-width: 380px){
+.hero__title{ font-size: clamp(1.35rem, 9.2vw, 1.9rem); top: 9vh; right: 6vw; }
+.btn{ font-size: .95rem; padding: .9rem 1rem; }
+.hero__cta-note{ font-size: .95rem; }
+.hero__blurb{ font-size: 1rem; }
+}

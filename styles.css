@@ -1,4 +1,5 @@
 :root{
+--yellow: #FFC907;
 --navy: #003366;
 --teal: #77A8BB;
 --cream: #FFF7E1;
@@ -8,88 +9,157 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{font-family:'Proxima Nova','Avenir',sans-serif;color:var(--ink);background:var(--cream);line-height:1.5}
-img{max-width:100%;height:auto}
+body{font-family:'Proxima Nova','Avenir',sans-serif;color:#1A1A1A;background:#FFF7E1;line-height:1.5}
 
+.brandbar{position:absolute;top:20px;right:4.5vw;z-index:9999;display:flex;align-items:center;justify-content:center;height:auto}
+.brandbar__logo-img{width:clamp(120px, 20vw, 200px);height:auto;object-fit:contain;display:block;transition: transform 200ms ease, filter 200ms ease, opacity 200ms ease;}
+.brandbar__logo-img:hover{transform:scale(1.03);opacity:0.7}
 
-/* Header logo */
-.brandbar{position:absolute;top:20px;right:4.5vw;z-index:9999;display:flex;align-items:center;justify-content:center}
-.brandbar__logo-img{width:clamp(120px,20vw,200px);height:auto;object-fit:contain;transition:transform .2s ease,opacity .2s ease}
-.brandbar__logo-img:hover{transform:scale(1.03);opacity:.7}
+.hero{position:relative;min-height:100vh;isolation:isolate;color:#003366;overflow:hidden;}
+.hero__bg{position:absolute;inset:0;background:url('img/Hero.png') center center/cover no-repeat; z-index:-2}
+.hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,51,102,.15) 0%, rgba(0,51,102,.08) 50%, rgba(0,51,102,.12) 100%);z-index:-1}
 
-
-/* === DESKTOP DEFAULT LAYOUT === */
-.hero{position:relative;min-height:100vh;isolation:isolate;color:var(--navy);overflow:hidden}
-.hero__bg{position:absolute;inset:0;background:url('img/Hero.png') center center/cover no-repeat;z-index:-2}
-.hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,51,102,.15) 0%,rgba(0,51,102,.08) 50%,rgba(0,51,102,.12) 100%);z-index:-1}
-
-
-.hero__title{position:absolute;right:4.5vw;top:13vh;display:flex;flex-direction:column;gap:.2em;text-align:right;margin:0;color:var(--navy);font-weight:800;line-height:1;font-size:clamp(2.2rem,5vw,4rem)}
+.hero__title{position:absolute;right:4.5vw;top:13vh;display:flex;flex-direction:column;gap:.2em;text-align:right;margin:0;color:#003366;font-weight:800;line-height:1;font-size:clamp(2.2rem,5vw,4rem)}
 .hero__title span{display:block}
 
-
-.hero__content{position:absolute;left:12vw;right:8vw;bottom:5.5vh;display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:4rem;max-width:80%}
-.hero__cta{display:flex;flex-direction:column;align-items:center;gap:1.5rem;text-align:center;min-width:220px;flex-shrink:0;position:relative;top:2rem;color:var(--ink)}
+/* Grouped CTA + Blurb */
+.hero__content{position:absolute;left:12vw;right:8vw;bottom:5.5vh;display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:4rem;max-width:80%;}
+.hero__cta{display:flex;flex-direction:column;align-items:center;gap:1.5rem;text-align:center;min-width:220px;flex-shrink:0;position:relative;top:2rem;color:#1A1A1A}
 .cta-buttons{display:flex;flex-direction:row;gap:1.6875rem;flex-wrap:wrap;justify-content:center}
 
-
-.btn{padding:1.2rem 1.5rem;border-radius:12px;font-weight:800;font-size:1.1rem;text-decoration:none;border:0;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease}
-.btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(0,0,0,.1)}
-.btn:active{transform:translateY(0);box-shadow:var(--shadow)}
+.btn{padding:1.2rem 1.5rem;border-radius:12px;font-weight:800;font-size:1.1rem;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.08);transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease;will-change: transform;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(0,0,0,0.10)}
+.btn:active{transform:translateY(0);box-shadow:0 10px 30px rgba(0,0,0,0.08)}
 .btn:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
 
+.btn--primary{background:#FFC907;color:#1A1A1A;font-weight:900}
+.btn--primary:hover{background:#ffd64a}
+.btn--secondary{background:#003366;color:#ffffff;transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;}
+.btn--secondary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(0,0,0,0.12)}
 
-.btn--primary{background:var(--yellow);color:var(--ink);font-weight:900}
-.btn--primary:hover{background:#FFD64A}
-.btn--secondary{background:var(--navy);color:#fff}
-.btn--secondary:hover{box-shadow:0 14px 40px rgba(0,0,0,.12)}
-.hero__cta-note{margin:0;color:var(--navy);opacity:.95;font-size:1.1rem}
+.hero__cta-note{margin:0;color:#003366;opacity:.95;text-align:center;font-size:1.1rem}
 
+.hero__blurb{flex:1;color:#003366;font-size:1.4rem;line-height:1.7;margin:0;text-align:justify;align-self:flex-start;max-width:48ch}
 
-.hero__blurb{flex:1;color:var(--navy);font-size:1.4rem;line-height:1.7;margin:0;max-width:48ch;text-align:justify}
-
-
-/* Footer */
-.footer{background:var(--navy);color:var(--cream);padding:2rem 1rem}
+.footer{background:#003366;color:#FFF7E1;padding:2rem 1rem}
 .footer__content{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;text-align:center}
-.footer__text{margin:0;color:var(--cream)}
-.footer__logo{width:20px;height:auto;object-fit:contain;display:inline-block;vertical-align:middle;transition:opacity .2s ease}
-.footer__logo:hover{opacity:.7}
+.footer__text{margin:0;color:#FFF7E1}
+.footer__logo{width:20px;height:auto;object-fit:contain;display:inline-block;vertical-align:middle;transition:opacity 200ms ease;}
+.footer__logo:hover{opacity:0.7}
 
-
-/* === TABLET DOWN === */
+/* Tablet */
 @media (max-width: 900px){
-.hero__title{right:5vw;top:11vh;font-size:clamp(2rem,6vw,3rem)}
-.hero__content{left:8vw;right:6vw;gap:3rem}
-.hero__blurb{font-size:1.25rem}
 }
-
-
-/* === PHONE LAYOUT === */
+/* ===== Mobile Hotfix (<= 600px) ===== */
 @media (max-width: 600px){
-.hero{min-height:100svh;display:grid;grid-template-rows:44vh auto 1fr}
-.hero__overlay{background:linear-gradient(180deg,rgba(0,51,102,.16) 0%,rgba(0,51,102,.10) 45%,rgba(0,51,102,.20) 100%)}
-.hero__title{position:static;margin:0;padding:0 6vw;text-align:center;align-self:center;justify-self:center;font-size:clamp(1.8rem,8.8vw,2.4rem);line-height:1.06;gap:.06em}
-.hero__content{position:static;margin:4vh 6vw 6vh;padding:0;display:grid;grid-template-columns:1fr 1.2fr;gap:6vw;align-items:start;text-align:left;z-index:1}
-.hero__blurb{margin:0;font-size:1.02rem;line-height:1.6;color:var(--navy);text-align:left;max-width:100%}
-.hero__cta{display:flex;flex-direction:column;gap:.75rem;color:var(--ink);align-items:flex-start;text-align:left}
-.cta-buttons{display:flex;flex-direction:row;gap:.75rem}
-.btn{display:block;width:auto;padding:.9rem 1.15rem;border-radius:12px;font-weight:800;font-size:1rem;border:0}
-.btn--primary{background:var(--yellow);color:var(--ink);font-weight:900}
-.btn--secondary{background:var(--navy);color:#fff}
-.hero__cta-note{margin:.35rem 0 0;color:var(--navy);font-size:.95rem;opacity:.95}
+/* Use dynamic viewport height so Safari's URL bar doesn't collapse the hero */
+.hero{ min-height: 100svh; }
+
+/* Make image visible but keep legibility with a stronger overlay */
+.hero__overlay{
+background: linear-gradient(180deg,
+rgba(0,51,102,.30) 0%,
+rgba(0,51,102,.20) 40%,
+rgba(0,51,102,.32) 100%
+);
 }
 
+/* Headline fixes: smaller, padded from the right edge, and a touch more spacing */
+.hero__title{
+right: 6vw; /* was 5vw — gives breathing room */
+top: 10vh; /* lower from the very top */
+font-size: clamp(1.6rem, 8.5vw, 2.3rem);
+line-height: 1.05;
+gap: .06em;
+max-width: 10ch; /* prevents overly long lines */
+}
 
-/* === VERY SMALL PHONES === */
+/* Ensure header logo doesn't crowd content and stays tappable */
+.brandbar{ top: 12px; right: 4.5vw; }
+.brandbar__logo-img{ width: clamp(110px, 28vw, 160px); }
+
+/* CTA & blurb: bring them back on-screen, stack with space */
+.hero__content{
+left: 6vw; right: 6vw; bottom: 6vh;
+gap: 1.4rem; align-items: stretch; text-align: left;
+}
+
+.cta-buttons{ gap: .85rem; width: 100%; }
+.btn{ width: 100%; padding: 1rem 1.2rem; font-size: 1rem; }
+
+.hero__cta{ gap: 1rem; }
+.hero__cta-note{ font-size: 1rem; }
+
+/* Blurb: readable width and spacing */
+.hero__blurb{
+max-width: 100%;
+font-size: 1.05rem;
+line-height: 1.6;
+text-align: left;
+}
+}
+
+/* ===== Very small devices (<= 380px) ===== */
 @media (max-width: 380px){
-.hero{grid-template-rows:38vh auto 1fr}
-.hero__title{font-size:clamp(1.5rem,9.6vw,2rem)}
-.hero__content{grid-template-columns:1fr;gap:1rem}
-.cta-buttons{flex-direction:column}
-.btn{width:100%;font-size:.95rem;padding:.85rem 1rem}
-.hero__blurb{font-size:1rem;line-height:1.55}
+.hero__title{ font-size: clamp(1.35rem, 9.2vw, 1.9rem); top: 9vh; right: 6vw; }
+.btn{ font-size: .95rem; padding: .9rem 1rem; }
+.hero__cta-note{ font-size: .95rem; }
+.hero__blurb{ font-size: 1rem; }
+}
+/* ===== Mobile Layout RESET (<= 600px) ===== */
+@media (max-width: 600px){
+/* Make the hero a 3-row grid: title, flexible spacer, CTA+blurb */
+.hero{
+min-height: 100svh; /* stable height on iOS */
+display: grid;
+grid-template-rows: auto 1fr auto; /* top, spacer, bottom */
+align-content: stretch;
 }
 
+/* Title sits in the first row; no absolute positioning */
+.hero__title{
+position: static; /* overrides absolute */
+margin: 10vh 6vw 0 6vw;
+text-align: right;
+font-size: clamp(1.6rem, 8.5vw, 2.2rem);
+line-height: 1.06;
+gap: .06em;
+}
 
-@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+/* CTA + blurb live in the last row, bottom of screen */
+.hero__content{
+position: static; /* overrides absolute */
+left: auto; right: auto; top: auto; bottom: auto; /* fully reset */
+margin: 0 6vw 6vh; /* side & bottom breathing room */
+display: flex;
+flex-direction: column;
+align-items: stretch;
+gap: 1.2rem;
+z-index: 1; /* sits above image/overlay */
+text-align: left;
+}
+
+/* Strengthen overlay for text contrast on the bright photo */
+.hero__overlay{
+background: linear-gradient(180deg,
+rgba(0,51,102,.30) 0%,
+rgba(0,51,102,.20) 40%,
+rgba(0,51,102,.32) 100%
+);
+}
+
+/* Comfortable tap targets and layout */
+.cta-buttons{ gap: .85rem; width: 100%; }
+.btn{ width: 100%; padding: 1rem 1.2rem; font-size: 1rem; }
+.hero__cta{ gap: 1rem; }
+.hero__cta-note{ font-size: 1rem; }
+.hero__blurb{ max-width: 100%; font-size: 1.05rem; line-height: 1.6; }
+}
+
+/* ===== Very small devices (<= 380px) ===== */
+@media (max-width: 380px){
+.hero__title{ font-size: clamp(1.35rem, 9.2vw, 1.9rem); margin-top: 9vh; }
+.btn{ font-size: .95rem; padding: .9rem 1rem; }
+.hero__cta-note{ font-size: .95rem; }
+.hero__blurb{ font-size: 1rem; }
+}

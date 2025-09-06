@@ -70,3 +70,39 @@ rgba(0,51,102,.12) 100%);
 /* Secondary button remains navy */
 .btn--secondary{ background:#003366; color:#ffffff; }
 }
+
+/* ===== Mobile Fix v2 (<= 600px) ===== */
+@media (max-width: 600px){
+/* Put headline under the arm on the left */
+.hero__title{
+position: static; /* ensure not absolute */
+text-align: left;
+margin: 11vh 6vw 0 6vw; /* left-aligned with safe margins */
+max-width: 12ch; /* compact lines like the design */
+}
+
+
+/* CTA buttons: enforce backgrounds + readable colors */
+.cta-buttons{ gap: 1rem; width: 100%; }
+.btn{
+display: block; width: 100%; text-align: center; text-decoration: none !important;
+border: 0;
+}
+.btn--primary{ background: #FFC907 !important; color: #1A1A1A !important; font-weight: 900; }
+.btn--secondary{ background: #003366 !important; color: #ffffff !important; }
+.btn--secondary:visited{ color:#ffffff; }
+
+
+/* Extra breathing room between CTAs and blurb */
+.hero__cta{ gap: 1rem; }
+.hero__blurb{ margin-top: 1.25rem; }
+
+
+/* Slightly stronger overlay for readability on busy photo areas */
+.hero__overlay{
+background: linear-gradient(180deg,
+rgba(0,51,102,.30) 0%,
+rgba(0,51,102,.22) 45%,
+rgba(0,51,102,.34) 100%);
+}
+}

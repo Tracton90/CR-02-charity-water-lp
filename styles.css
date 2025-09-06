@@ -21,11 +21,9 @@ body{font-family:'Proxima Nova','Avenir',sans-serif;color:var(--ink);background:
 .hero__bg{position:absolute;inset:0;background:url('img/Hero.png') center center/cover no-repeat; z-index:-2}
 .hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,51,102,.15) 0%, rgba(0,51,102,.08) 50%, rgba(0,51,102,.12) 100%);z-index:-1}
 
-/* Headline on the right */
 .hero__title{position:absolute;right:4.5vw;top:13vh;display:flex;flex-direction:column;gap:.2em;text-align:right;margin:0;color:var(--navy);font-weight:800;line-height:1;font-size:clamp(2.2rem,5vw,4rem)}
 .hero__title span{display:block}
 
-/* Bottom row: CTAs left, blurb right */
 .hero__content{position:absolute;left:12vw;right:8vw;bottom:5.5vh;display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:4rem;max-width:80%}
 .hero__cta{display:flex;flex-direction:column;align-items:center;gap:1.5rem;text-align:center;min-width:220px;flex-shrink:0;position:relative;top:2rem;color:var(--ink)}
 .cta-buttons{display:flex;flex-direction:row;gap:1.6875rem;flex-wrap:wrap;justify-content:center}
@@ -37,7 +35,7 @@ body{font-family:'Proxima Nova','Avenir',sans-serif;color:var(--ink);background:
 
 .btn--primary{background:var(--yellow);color:var(--ink);font-weight:900}
 .btn--primary:hover{background:#FFD64A}
-.btn--secondary{background:var(--navy);color:#fff}
+.btn--secondary{background:var(--navy);color:#FFF7E1}
 .btn--secondary:hover{box-shadow:0 14px 40px rgba(0,0,0,.12)}
 .hero__cta-note{margin:0;color:var(--navy);opacity:.95;font-size:1.1rem}
 
@@ -51,46 +49,33 @@ body{font-family:'Proxima Nova','Avenir',sans-serif;color:var(--ink);background:
 .footer__logo:hover{opacity:.7}
 
 /* ================== MEDIA QUERIES ================== */
-
-/* Tablet down (fine-tune scale only) */
 @media (max-width: 900px){
   .hero__title{right:5vw;top:11vh;font-size:clamp(2rem,6vw,3rem)}
   .hero__content{left:8vw;right:6vw;gap:3rem}
   .hero__blurb{font-size:1.25rem}
 }
 
-/* === MOBILE-ONLY (≤600px): Canva design — full image (no crop) + cream band === */
-@media (max-width: 600px){
-  /* Layout: image on top, cream band below */
-  .hero{display:grid !important;grid-template-rows:auto auto !important;min-height:auto !important;position:relative}
+/* === MOBILE (≤600px): cream band with image on top === */
+@media (max-width:600px){
+  .hero{background:var(--cream) !important;display:block !important;min-height:auto !important;position:relative}
 
-  /* Show the entire mobile hero image without cropping */
-  .hero__bg{position:relative !important;background-image:url('img/Mobile_hero.png') !important;background-size:contain !important;background-repeat:no-repeat !important;background-position:center top !important;width:100%;height:auto;aspect-ratio:16/9;z-index:-2}
+  .hero__bg{position:relative !important;inset:auto !important;width:100% !important;height:auto !important;aspect-ratio:16/9 !important;background-image:url('img/Mobile_hero.png') !important;background-size:contain !important;background-repeat:no-repeat !important;background-position:center top !important;margin:0 auto 24px !important;z-index:auto !important}
 
-  /* No overlay over the image — cream band is separate */
-  .hero__overlay{background:none !important}
+  .hero__overlay{display:none !important}
 
-  /* Cream band holds all content, centered */
-  .hero__content{position:static !important;background:var(--cream) !important;padding:2rem 1.5rem !important;display:flex !important;flex-direction:column !important;align-items:center !important;text-align:center !important;gap:1rem !important;margin:0 !important}
+  .hero__title{position:static !important;margin:0 6vw 12px !important;text-align:center !important;color:var(--navy) !important;font-weight:800 !important;font-size:clamp(1.8rem,7.5vw,2.6rem) !important;line-height:1.1 !important}
 
-  /* Title in navy, centered */
-  .hero__title{position:static !important;margin:0 0 .5rem 0 !important;text-align:center !important;color:var(--navy) !important;font-weight:800;font-size:clamp(1.6rem,7vw,2.2rem) !important;line-height:1.1 !important}
+  .hero__content{position:static !important;margin:0 6vw 32px !important;padding:0 !important;display:flex !important;flex-direction:column !important;align-items:center !important;text-align:center !important;gap:28px !important;background:transparent !important;max-width:100% !important}
 
-  /* Blurb in navy, centered under title */
-  .hero__blurb{color:var(--navy) !important;font-size:1.05rem !important;line-height:1.6 !important;max-width:65ch;margin:0 !important;text-align:center}
+  .hero__blurb{order:1;color:var(--navy) !important;font-size:1.05rem !important;line-height:1.6 !important;max-width:65ch !important;text-align:center !important}
+  .cta-buttons{order:2;display:flex !important;gap:14px !important;justify-content:center !important;flex-wrap:wrap !important;margin-top:20px !important}
+  .hero__cta-note{order:3;color:var(--navy) !important;margin-top:5px !important;font-size:.95rem !important}
 
-  /* CTAs centered under blurb */
-  .cta-buttons{display:flex !important;gap:.9rem !important;justify-content:center !important;flex-wrap:wrap !important}
-  .btn{padding:1rem 1.2rem !important;border-radius:12px;font-size:1rem}
-  .btn--primary{background:var(--yellow);color:var(--ink);font-weight:900}
-  .btn--secondary{background:var(--navy);color:#fff}
-  .hero__cta-note{color:var(--navy) !important;margin-top:.5rem !important;font-size:.95rem !important}
-
-  /* Optional: hide big desktop brandbar on phones */
-  .show-desktop-only{display:none !important}
+  .btn{padding:1rem 1.2rem !important;border-radius:12px !important;font-size:1rem !important}
+  .btn--primary{background:var(--yellow) !important;color:var(--ink) !important;font-weight:900 !important}
+  .btn--secondary{background:var(--navy) !important;color:#fff !important}
 }
 
-/* Very small phones (≤380px): make CTAs full width */
 @media (max-width:380px){
   .cta-buttons{flex-direction:column;width:100%}
   .btn{width:100%}

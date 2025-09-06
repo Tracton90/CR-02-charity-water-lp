@@ -163,3 +163,40 @@ rgba(0,51,102,.32) 100%
 .hero__cta-note{ font-size: .95rem; }
 .hero__blurb{ font-size: 1rem; }
 }
+
+/* ===== PHONE LAYOUT TO MATCH SCREENSHOT (≤ 600px) — paste at END ===== */
+@media (max-width: 600px){
+/* 1) Three-row hero: photo focus / CTA band / content */
+.hero{ min-height: 100svh !important; display:grid !important; grid-template-rows: 38vh auto 1fr !important; align-content:stretch !important; }
+
+
+/* 2) CTA band: buttons row + note underneath, full width across band */
+.hero__content{ position:static !important; margin: 3vh 5vw 6vh !important; padding:0 !important; display:grid !important; grid-template-columns: 1fr 1fr !important; gap:5vw !important; align-items:start !important; text-align:left !important; left:auto !important; right:auto !important; bottom:auto !important; }
+.hero__cta{ grid-column: 1 / -1 !important; display:flex !important; flex-direction:column !important; align-items:flex-start !important; gap:.6rem !important; text-align:left !important; position:static !important; top:auto !important; }
+.cta-buttons{ display:flex !important; flex-direction:row !important; gap:.9rem !important; }
+.btn{ padding:.9rem 1.15rem !important; font-size:1rem !important; border-radius:12px !important; width:auto !important; }
+.btn--primary{ background:#FFC907 !important; color:#1A1A1A !important; font-weight:900 !important; }
+.btn--secondary{ background:#003366 !important; color:#ffffff !important; }
+.hero__cta-note{ margin:.25rem 0 0 0 !important; color:#003366 !important; font-size:.95rem !important; }
+
+
+/* 3) Headline appears below the band on the LEFT column */
+.hero__title{ position:static !important; margin: 2vh 5vw 0 5vw !important; text-align:left !important; font-size: clamp(1.8rem, 8.8vw, 2.4rem) !important; line-height:1.06 !important; gap:.06em !important; }
+
+
+/* 4) Blurb on the RIGHT column in cream for contrast */
+.hero__blurb{ margin: 2vh 0 0 0 !important; color:#FFF7E1 !important; font-size:1.02rem !important; line-height:1.6 !important; text-align:left !important; }
+
+
+/* 5) Slightly stronger overlay for readability over photo */
+.hero__overlay{ background: linear-gradient(180deg, rgba(0,51,102,.22) 0%, rgba(0,51,102,.12) 45%, rgba(0,51,102,.26) 100%) !important; }
+}
+
+
+/* ===== VERY SMALL PHONES (≤ 380px): stack bottom area ===== */
+@media (max-width: 380px){
+.hero{ grid-template-rows: 36vh auto 1fr !important; }
+.hero__content{ grid-template-columns: 1fr !important; }
+.cta-buttons{ flex-direction: column !important; }
+.btn{ width:100% !important; }
+}

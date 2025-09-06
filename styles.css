@@ -35,7 +35,7 @@ body{font-family:'Proxima Nova','Avenir',sans-serif;color:var(--ink);background:
 
 .btn--primary{background:var(--yellow);color:var(--ink);font-weight:900}
 .btn--primary:hover{background:#FFD64A}
-.btn--secondary{background:var(--navy);color:#fff}
+.btn--secondary{background:var(--navy);color:#FFF7E1}
 .btn--secondary:hover{box-shadow:0 14px 40px rgba(0,0,0,.12)}
 .hero__cta-note{margin:0;color:var(--navy);opacity:.95;font-size:1.1rem}
 
@@ -67,7 +67,7 @@ body{font-family:'Proxima Nova','Avenir',sans-serif;color:var(--ink);background:
 
   .hero__content{position:static !important;margin:0 6vw 32px !important;padding:0 !important;display:flex !important;flex-direction:column !important;align-items:center !important;text-align:center !important;gap:28px !important;background:transparent !important;max-width:100% !important}
 
-  .hero__blurb{order:1;color:var(--navy) !important;font-size:1.05rem !important;line-height:1.6 !important;max-width:65ch !important;text-align:center !important;margin-bottom:20px !important}
+  .hero__blurb{order:1;color:var(--navy) !important;font-size:1.05rem !important;line-height:1.6 !important;max-width:65ch !important;text-align:center !important;margin-top:25px !important;margin-bottom:20px !important}
   .cta-buttons{order:2;display:flex !important;gap:14px !important;justify-content:center !important;flex-wrap:wrap !important;margin-top:0 !important}
   .hero__cta-note{order:3;color:var(--navy) !important;margin-top:5px !important;font-size:.95rem !important}
 
@@ -75,8 +75,9 @@ body{font-family:'Proxima Nova','Avenir',sans-serif;color:var(--ink);background:
   .btn--primary{background:var(--yellow) !important;color:var(--ink) !important;font-weight:900 !important}
   .btn--secondary{background:var(--navy) !important;color:#fff !important}
 
-  /* Replace header logo with jerry can */
-  .brandbar__logo-img{content:url('img/jerry_can.png');width:15px !important;height:auto !important}
+  /* Move header logo to bottom center with cw_logo */
+  .brandbar{position:static !important;display:flex !important;justify-content:center !important;margin-top:20px !important}
+  .brandbar__logo-img{content:url('img/cw_logo.png') !important;width:60px !important;height:auto !important}
 
   /* Hide footer on mobile */
   .footer{display:none !important}
